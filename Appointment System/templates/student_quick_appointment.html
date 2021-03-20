@@ -1,0 +1,69 @@
+{% extends 'common_student.html' %}
+
+{% block common_student %}
+
+<div class="student">
+  <div class="container">
+    <div class="row min-height">
+      <div class="col-sm-12">
+
+        <div class="row main_boder">
+          <div class="col-sm-7">
+            <h3 class="appointment_list">Randevu Al</h3>
+          </div>
+          
+          <div class="col-sm-5">
+            <form class="form-inline my-2 my-lg-0" method="GET" action="">
+              <input class="form-control mr-sm-2" type="text" name="q" placeholder="Öğretmen Adıyla Ara"
+                placeholder="İsimle Ara" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">Ara</button>
+            </form>
+          </div>
+
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Öğretmen Adı</th>
+              <th scope="col">Tarih</th>
+              <th scope="col">Uygun Saatler</th>
+            </tr>
+          </thead>
+          <tbody>{% for appoint in query %}
+            {% if appoint.appointment_with == '' %}
+            <tr>
+              
+              <th scope="row">{{appoint.user.first_name}} {{appoint.user.last_name}}</th>
+              <td>{{appoint.date}}</td>
+              <td>
+                <span class="inline">{{appoint.time_start}} - {{appoint.time_end}}
+                  <a href='{% url "appointment_update" id=appoint.id %}'> <button
+                      class="btn btn-primary" type="submit">Randevu Al</button></a></span>
+              </td>
+              {% endif %}
+            </tr>{% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        YILDIZ TEKNİK ÜNİVERSİTESİ
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock common_student %}

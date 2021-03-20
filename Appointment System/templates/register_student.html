@@ -1,0 +1,99 @@
+{% extends 'common.html' %}
+
+{% block body%}
+<form action="register_student" method="post">
+	{% csrf_token %}
+	<div class="register_student">
+		<div class="container height">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<h2 class="Login">Öğrenci Kayıt Ekranı</h2><br>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
+						</div>
+						<input type="text" name="username" class="form-control" placeholder="Kullanıcı Adı"
+							aria-label="Username" aria-describedby="basic-addon1" required>
+					</div>
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1"><i
+									class="fas fa-file-signature"></i></span>
+						</div>
+						<input type="text" name="first_name" class="form-control" placeholder="İsim" aria-label="Name"
+							aria-describedby="basic-addon1" required>
+					</div>
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1"><i class="far fa-id-badge"></i></span>
+						</div>
+						<input type="text" name="last_name" class="form-control" placeholder="Soyisim"
+							aria-label="LastName" aria-describedby="basic-addon1" required>
+					</div>
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1"><i
+									class="fas fa-envelope-square"></i></span>
+						</div>
+						<input type="email" name="email" class="form-control" placeholder="E-mail" aria-label="mail"
+							aria-describedby="basic-addon1" required>
+					</div>
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">*</span>
+						</div>
+						<input type="password" name="password1" class="form-control" placeholder="Şifre"
+							aria-label="pass" aria-describedby="basic-addon1" required>
+						<input type="password" name="password2" class="form-control" placeholder="Şifreyi Tekrarla"
+							aria-label="repeat_pass" aria-describedby="basic-addon1" required>
+					</div>
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+						</div>
+
+						<input style="transform: scale(1.5); height:30px; margin-left: 8px;" type="checkbox" name="kvkk"
+							id="kvkk" required>
+						<label style="padding-left:16px; height:20px" for="kvkk"> <a
+								href=" https://www.kisiselverilerinkorunmasi.org/kanunu-6698-sayili/"
+								target="_blank">KVKK Metnini okudum onaylıyorum.</a></label>
+
+					</div>
+					{% if messages%}
+					{% for message in messages%}
+					<div class="alert alert-danger" role="alert">
+						{{message}}
+					</div>
+					{% endfor %}
+					{% endif %}
+					<div class="input-group mb-3">
+						<input type="submit" class="form-control submit" value="Kayıt Ol" aria-label="submit"
+							aria-describedby="basic-addon1">
+					</div>
+
+					<a class="regi" href="http://127.0.0.1:8000">Girişe Dön</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+{% comment %} <div class="container">
+	<form action="register_student" method="post">
+		{% csrf_token %}
+		<input type="text" name="first_name" placeholder="First Name"> <br>
+		<input type="text" name="last_name" placeholder="Last Name"> <br>
+		<input type="text" name="username" placeholder="username"> <br>
+		<input type="password" name="password1" placeholder="Password"> <br>
+		<input type="password" name="password2" placeholder="confirm it"> <br>
+		<input type="Submit">
+
+
+	</form>
+
+</div> {% endcomment %}
+
+{%endblock%}

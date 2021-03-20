@@ -1,0 +1,42 @@
+{% extends 'common.html' %}
+
+{% block body %}
+
+<div class="container ">
+	<div class="row studnet_nav">
+		<div class="col-sm-8">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<p>Öğrenci Paneli</p>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href='{% url "student"%}'>Randevularım</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href='{% url "quick_appointment"%}'>Randevu Al</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="col-sm-4">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<p>Hoş geldiniz</p>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">{{full_name}}</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href='{% url "logout"%}'>Çıkış</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+{% block common_student %}
+
+{% endblock common_student %}
+
+{% endblock %}
